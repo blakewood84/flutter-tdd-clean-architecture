@@ -25,11 +25,11 @@ void main() {
 
   test('Should get trivia for the number from the repository', () async {
     // arrange
-    when(mockNumberTriviaRepository!.getConcreteNumberTrivia(any)).thenAnswer((_) async => Right(tNumberTrivia));
+    when(mockNumberTriviaRepository!.getConcreteNumberTrivia(any)).thenAnswer((_) async => const Right(tNumberTrivia));
     // act
     final result = await usecase!.execute(number: tNumber);
     // assert
-    expect(result, Right(tNumberTrivia));
+    expect(result, const Right(tNumberTrivia));
     verify(mockNumberTriviaRepository!.getConcreteNumberTrivia(tNumber));
   });
 }
